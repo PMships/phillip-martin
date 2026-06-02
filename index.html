@@ -129,15 +129,15 @@
       justify-content: center;
       align-items: flex-start;
       gap: 0;
-      padding: 100px 40px 40px;
-      background: rgba(10,13,20,0.97);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      padding: 100px 32px 40px;
+      background: var(--bg);
       opacity: 0;
       pointer-events: none;
-      transform: translateY(-12px);
-      transition: opacity .3s ease, transform .3s ease;
-      z-index: 40;
+      transform: translateY(-8px);
+      transition: opacity .28s ease, transform .28s ease;
+      z-index: 55;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
     body.menu-open nav ul {
       opacity: 1;
@@ -171,7 +171,9 @@
     nav a.nav-link:hover::after,
     nav a.nav-link:active::after { opacity: 1; transform: translateX(4px); }
     .menu-toggle { display: inline-flex; position: relative; z-index: 60; }
-    body.menu-open { overflow: hidden; }
+    /* Keep brand + button visible above the overlay */
+    nav .wrap { position: relative; z-index: 60; }
+    body.menu-open { overflow: hidden; position: fixed; width: 100%; }
   }
 
   /* Hero */
@@ -928,26 +930,34 @@
     const btn = document.getElementById('menuToggle');
     const body = document.body;
     if (!btn) return;
-    const close = () => {
-      body.classList.remove('menu-open');
-      btn.setAttribute('aria-expanded', 'false');
-      btn.setAttribute('aria-label', 'Open menu');
-    };
+    let savedScrollY = 0;
     const open = () => {
+      savedScrollY = window.scrollY;
+      body.style.top = `-${savedScrollY}px`;
       body.classList.add('menu-open');
       btn.setAttribute('aria-expanded', 'true');
       btn.setAttribute('aria-label', 'Close menu');
     };
+    const close = ({ skipRestore = false } = {}) => {
+      const wasOpen = body.classList.contains('menu-open');
+      body.classList.remove('menu-open');
+      body.style.top = '';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+      if (wasOpen && !skipRestore) window.scrollTo(0, savedScrollY);
+    };
     btn.addEventListener('click', () => {
       body.classList.contains('menu-open') ? close() : open();
     });
-    // Close when a nav link is tapped
-    document.querySelectorAll('#primary-nav a').forEach(a => a.addEventListener('click', close));
+    // Close when a nav link is tapped — let the browser scroll to the anchor
+    document.querySelectorAll('#primary-nav a').forEach(a => {
+      a.addEventListener('click', () => close({ skipRestore: true }));
+    });
     // Close on Escape
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
     // Close if viewport widens past mobile breakpoint
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 720) close();
+      if (window.innerWidth > 720 && body.classList.contains('menu-open')) close();
     });
   })();
 
