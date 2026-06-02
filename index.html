@@ -89,11 +89,89 @@
     transition: border-color .2s ease, transform .2s ease;
   }
   .brand:hover .avatar { border-color: var(--accent); transform: scale(1.03); }
-  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav ul { display: flex; gap: 28px; list-style: none; align-items: center; }
   nav a.nav-link { color: var(--text-dim); font-size: 14px; font-weight: 400; }
   nav a.nav-link:hover { color: var(--text); }
+
+  /* Hamburger button — hidden on desktop */
+  .menu-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: var(--text);
+    transition: border-color .2s ease, background .2s ease;
+  }
+  .menu-toggle:hover { border-color: var(--accent); }
+  .menu-toggle .bars { width: 18px; height: 12px; position: relative; }
+  .menu-toggle .bars span {
+    position: absolute; left: 0; right: 0;
+    height: 1.5px; background: currentColor;
+    transition: transform .25s ease, opacity .2s ease, top .25s ease;
+  }
+  .menu-toggle .bars span:nth-child(1) { top: 0; }
+  .menu-toggle .bars span:nth-child(2) { top: 5px; }
+  .menu-toggle .bars span:nth-child(3) { top: 10px; }
+  body.menu-open .menu-toggle .bars span:nth-child(1) { top: 5px; transform: rotate(45deg); }
+  body.menu-open .menu-toggle .bars span:nth-child(2) { opacity: 0; }
+  body.menu-open .menu-toggle .bars span:nth-child(3) { top: 5px; transform: rotate(-45deg); }
+
   @media (max-width: 720px) {
-    nav ul { display: none; }
+    nav ul {
+      position: fixed;
+      inset: 0;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0;
+      padding: 100px 40px 40px;
+      background: rgba(10,13,20,0.97);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-12px);
+      transition: opacity .3s ease, transform .3s ease;
+      z-index: 40;
+    }
+    body.menu-open nav ul {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    nav ul li {
+      width: 100%;
+      border-bottom: 1px solid var(--line);
+    }
+    nav ul li:first-child { border-top: 1px solid var(--line); }
+    nav a.nav-link {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -.01em;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+      width: 100%;
+    }
+    nav a.nav-link::after {
+      content: "→";
+      color: var(--accent);
+      font-size: 22px;
+      opacity: .5;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    nav a.nav-link:hover::after,
+    nav a.nav-link:active::after { opacity: 1; transform: translateX(4px); }
+    .menu-toggle { display: inline-flex; position: relative; z-index: 60; }
+    body.menu-open { overflow: hidden; }
   }
 
   /* Hero */
@@ -536,13 +614,16 @@
       </picture>
       <span>Phillip Martin<span class="dot">.</span></span>
     </a>
-    <ul>
+    <ul id="primary-nav">
       <li><a class="nav-link" href="#focus">Focus</a></li>
       <li><a class="nav-link" href="#ventures">Ventures</a></li>
       <li><a class="nav-link" href="#lab">Lab</a></li>
       <li><a class="nav-link" href="#writing">Writing</a></li>
       <li><a class="nav-link" href="#contact">Contact</a></li>
     </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+      <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
   </div>
 </nav>
 
@@ -841,6 +922,35 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  (function() {
+    const btn = document.getElementById('menuToggle');
+    const body = document.body;
+    if (!btn) return;
+    const close = () => {
+      body.classList.remove('menu-open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
+    };
+    const open = () => {
+      body.classList.add('menu-open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Close menu');
+    };
+    btn.addEventListener('click', () => {
+      body.classList.contains('menu-open') ? close() : open();
+    });
+    // Close when a nav link is tapped
+    document.querySelectorAll('#primary-nav a').forEach(a => a.addEventListener('click', close));
+    // Close on Escape
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    // Close if viewport widens past mobile breakpoint
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 720) close();
+    });
+  })();
+
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
