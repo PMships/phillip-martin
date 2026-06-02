@@ -1,0 +1,860 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phillip Martin — Founder-Operator · Agentic AI × Blockchain</title>
+<meta name="description" content="Two-time founder and twenty-year operator. Director of Irish Newspaper Archives, founder of Memorable Moments and VideoBook. Now focused on the convergence of agentic AI and blockchain — content licensing, on-chain provenance, EU-regulated product.">
+<meta name="author" content="Phillip Martin">
+<link rel="canonical" href="https://phillip-martin.com/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Phillip Martin — Founder-Operator · Agentic AI × Blockchain">
+<meta property="og:description" content="Twenty years building rights-cleared data and content businesses. Now focused on agentic AI × blockchain — content licensing, on-chain provenance, EU-regulated product.">
+<meta property="og:url" content="https://phillip-martin.com/">
+<meta property="og:image" content="https://phillip-martin.com/portrait.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Phillip Martin — Founder-Operator · Agentic AI × Blockchain">
+<meta name="twitter:description" content="Twenty years building rights-cleared data and content businesses. Now focused on agentic AI × blockchain.">
+<meta name="twitter:image" content="https://phillip-martin.com/portrait.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0a0d14;
+    --bg-elev: #11151f;
+    --bg-card: #141925;
+    --line: #1f2533;
+    --text: #e8e6df;
+    --text-dim: #a0a4b0;
+    --text-faint: #6b7080;
+    --accent: #d4a574;
+    --accent-soft: #e6c499;
+    --grad-1: #1a2030;
+    --grad-2: #0a0d14;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --max: 1080px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(900px 600px at 15% -10%, rgba(212,165,116,0.06), transparent 60%),
+      radial-gradient(700px 500px at 95% 10%, rgba(80,120,180,0.05), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  a { color: var(--accent); text-decoration: none; transition: color .15s ease, border-color .15s ease; }
+  a:hover { color: var(--accent-soft); }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(10,13,20,0.72);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; font-family: var(--serif); font-weight: 500; font-size: 17px; letter-spacing: -.01em; color: var(--text); }
+  .brand .dot { color: var(--accent); }
+  .brand .avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    filter: contrast(1.03);
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .brand:hover .avatar { border-color: var(--accent); transform: scale(1.03); }
+  nav ul { display: flex; gap: 28px; list-style: none; }
+  nav a.nav-link { color: var(--text-dim); font-size: 14px; font-weight: 400; }
+  nav a.nav-link:hover { color: var(--text); }
+  @media (max-width: 720px) {
+    nav ul { display: none; }
+  }
+
+  /* Hero */
+  .hero { padding: 80px 0 60px; }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .hero-portrait {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    justify-self: end;
+  }
+  .hero-portrait::before {
+    content: "";
+    position: absolute;
+    top: -14px; left: -14px;
+    width: 64px; height: 1px;
+    background: var(--accent);
+  }
+  .hero-portrait::after {
+    content: "";
+    position: absolute;
+    top: -14px; left: -14px;
+    width: 1px; height: 64px;
+    background: var(--accent);
+  }
+  .hero-portrait img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    filter: contrast(1.04) brightness(0.98);
+    background: var(--bg-card);
+  }
+  .hero-portrait .caption {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; gap: 12px;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .hero-portrait .caption .name { color: var(--text-dim); font-weight: 500; }
+  @media (max-width: 900px) {
+    .hero { padding: 60px 0 40px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-portrait { max-width: 320px; justify-self: start; order: -1; }
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 28px;
+  }
+  .eyebrow::before {
+    content: ""; width: 28px; height: 1px; background: var(--accent);
+  }
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(40px, 6.2vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -.025em;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+  h1 em { font-style: italic; color: var(--accent-soft); font-weight: 400; }
+  .lede {
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.5;
+    color: var(--text-dim);
+    max-width: 720px;
+    font-weight: 300;
+    margin-bottom: 44px;
+  }
+  .lede strong { color: var(--text); font-weight: 500; }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-family: var(--sans); font-size: 14px; font-weight: 500;
+    transition: all .18s ease;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--accent); color: #1a1408; border: 1px solid var(--accent);
+  }
+  .btn-primary:hover { background: var(--accent-soft); color: #1a1408; transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent; color: var(--text); border: 1px solid var(--line);
+  }
+  .btn-ghost:hover { border-color: var(--text-dim); color: var(--text); }
+  .btn svg { width: 14px; height: 14px; }
+
+  /* Meta strip */
+  .meta-strip {
+    margin-top: 60px;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .meta-item .k { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 6px; }
+  .meta-item .v { font-size: 15px; color: var(--text); font-weight: 500; }
+  @media (max-width: 720px) {
+    .meta-strip { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  }
+
+  /* Sections */
+  section { padding: 96px 0; position: relative; }
+  .section-head { margin-bottom: 56px; max-width: 720px; }
+  .label {
+    font-size: 12px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 18px;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(30px, 4vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -.02em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  h2 em { font-style: italic; color: var(--accent-soft); }
+  .section-head p {
+    font-size: 18px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* Operator: editorial 2-col with portrait */
+  .operator-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 64px;
+    align-items: start;
+  }
+  .positioning {
+    font-family: var(--serif);
+    font-size: clamp(22px, 2.4vw, 28px);
+    line-height: 1.45;
+    font-weight: 300;
+    color: var(--text);
+    letter-spacing: -.005em;
+  }
+  .positioning + .positioning { margin-top: 22px; font-size: clamp(17px, 1.4vw, 18px); font-family: var(--sans); color: var(--text-dim); line-height: 1.65; max-width: 640px; }
+  .positioning span.accent { color: var(--accent-soft); font-style: italic; }
+
+  .portrait-frame {
+    position: relative;
+    width: 100%;
+  }
+  .portrait-frame::before {
+    /* thin accent rule top-left, editorial touch */
+    content: "";
+    position: absolute;
+    top: -10px; left: -10px;
+    width: 56px; height: 1px;
+    background: var(--accent);
+  }
+  .portrait-frame::after {
+    content: "";
+    position: absolute;
+    top: -10px; left: -10px;
+    width: 1px; height: 56px;
+    background: var(--accent);
+  }
+  .portrait {
+    width: 100%;
+    aspect-ratio: 5 / 6;
+    object-fit: cover;
+    object-position: center 28%;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    display: block;
+    filter: contrast(1.03) brightness(0.98);
+    transition: filter .35s ease, transform .35s ease;
+    background: var(--bg-card);
+  }
+  .portrait-frame:hover .portrait { filter: contrast(1.06) brightness(1); transform: translateY(-2px); }
+  .portrait-caption {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .portrait-caption .name { color: var(--text-dim); font-weight: 500; }
+  @media (max-width: 860px) {
+    .operator-grid { grid-template-columns: 1fr; gap: 40px; }
+    .portrait-frame { max-width: 320px; }
+  }
+
+  /* Receipts grid */
+  .receipts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .receipt {
+    background: var(--bg-card);
+    padding: 32px 28px;
+  }
+  .receipt .num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: -.02em;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .receipt .num span { font-size: 22px; color: var(--accent-soft); }
+  .receipt h3 {
+    font-size: 16px; font-weight: 500; color: var(--text);
+    margin-bottom: 10px; letter-spacing: -.01em;
+  }
+  .receipt p {
+    font-size: 14px; color: var(--text-dim); line-height: 1.55;
+  }
+  @media (max-width: 720px) {
+    .receipts { grid-template-columns: 1fr; }
+  }
+
+  /* Ventures */
+  .ventures { display: flex; flex-direction: column; gap: 28px; }
+  .venture {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 36px;
+    padding: 36px 0;
+    border-top: 1px solid var(--line);
+  }
+  .venture:first-child { border-top: 1px solid var(--line); }
+  .venture .side .name {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text);
+    letter-spacing: -.01em;
+    margin-bottom: 6px;
+  }
+  .venture .side .role { font-size: 13px; color: var(--text-faint); margin-bottom: 4px; }
+  .venture .side .dates {
+    font-size: 12px; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  .venture .side .tag {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .tag-live { background: rgba(120,200,140,0.1); color: #8fcf9e; border: 1px solid rgba(120,200,140,0.2); }
+  .tag-sunset { background: rgba(212,165,116,0.08); color: var(--accent); border: 1px solid rgba(212,165,116,0.18); }
+
+  .venture .body p { color: var(--text-dim); font-size: 16px; line-height: 1.65; }
+  .venture .body p + p { margin-top: 14px; }
+  .venture .body p strong { color: var(--text); font-weight: 500; }
+  .venture .body .links {
+    margin-top: 18px; display: flex; flex-wrap: wrap; gap: 16px;
+    font-size: 13px;
+  }
+  .venture .body .links a {
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+  }
+  .venture .body .links a:hover { color: var(--accent); border-color: var(--accent); }
+  @media (max-width: 720px) {
+    .venture { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  /* Focus pillars */
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+  }
+  .pillar {
+    padding: 28px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .pillar:hover { border-color: rgba(212,165,116,0.3); transform: translateY(-2px); }
+  .pillar .arrow {
+    color: var(--accent); font-size: 18px; line-height: 1; margin-bottom: 14px;
+    font-family: var(--serif);
+  }
+  .pillar h3 {
+    font-size: 17px; font-weight: 500; color: var(--text);
+    margin-bottom: 10px; letter-spacing: -.01em;
+  }
+  .pillar p { font-size: 14px; color: var(--text-dim); line-height: 1.55; }
+  @media (max-width: 720px) {
+    .pillars { grid-template-columns: 1fr; }
+  }
+
+  /* EU callout */
+  .callout {
+    margin-top: 56px;
+    padding: 36px 40px;
+    background: linear-gradient(135deg, rgba(212,165,116,0.06), rgba(80,120,180,0.04));
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+  }
+  .callout .label { color: var(--accent); margin-bottom: 14px; }
+  .callout p {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: var(--text);
+    letter-spacing: -.005em;
+  }
+  .callout strong { color: var(--accent-soft); font-weight: 500; font-style: italic; }
+
+  /* Building in public */
+  .lab {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-top: 36px;
+  }
+  .lab-card {
+    padding: 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    display: flex; flex-direction: column;
+  }
+  .lab-card .status {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 16px;
+  }
+  .lab-card .status .pulse {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(212,165,116,0.5);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(212,165,116,0.55); }
+    70% { box-shadow: 0 0 0 12px rgba(212,165,116,0); }
+    100% { box-shadow: 0 0 0 0 rgba(212,165,116,0); }
+  }
+  .lab-card h3 {
+    font-family: var(--serif); font-size: 22px; font-weight: 500;
+    color: var(--text); letter-spacing: -.01em; margin-bottom: 12px;
+  }
+  .lab-card p { font-size: 15px; color: var(--text-dim); line-height: 1.6; flex: 1; }
+  .lab-card .meta { font-size: 13px; color: var(--text-faint); margin-top: 18px; }
+  @media (max-width: 720px) {
+    .lab { grid-template-columns: 1fr; }
+  }
+
+  /* Writing */
+  .writing-list { margin-top: 36px; }
+  .writing-item {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 24px;
+    align-items: center;
+    padding: 22px 0;
+    border-top: 1px solid var(--line);
+    transition: padding .2s ease;
+  }
+  .writing-item:last-child { border-bottom: 1px solid var(--line); }
+  .writing-item .date { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-faint); }
+  .writing-item .title { font-family: var(--serif); font-size: 18px; color: var(--text); font-weight: 400; letter-spacing: -.005em; }
+  .writing-item .arrow { color: var(--text-faint); font-size: 18px; }
+  .writing-item:hover { padding-left: 6px; }
+  .writing-item:hover .title { color: var(--accent-soft); }
+  .writing-item:hover .arrow { color: var(--accent); }
+  @media (max-width: 720px) {
+    .writing-item { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+    .writing-item .arrow { display: none; }
+  }
+
+  /* Contact */
+  .contact { text-align: left; padding-bottom: 120px; }
+  .contact h2 { margin-bottom: 24px; }
+  .contact .lede { margin-bottom: 36px; font-family: var(--serif); font-weight: 300; }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 36px 0;
+    font-size: 13px; color: var(--text-faint);
+  }
+  footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  footer a { color: var(--text-faint); }
+  footer a:hover { color: var(--text); }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .lab-card .status .pulse { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="brand">
+      <picture>
+        <source srcset="avatar.webp" type="image/webp">
+        <img class="avatar" src="avatar.jpg" alt="Phillip Martin" width="44" height="44">
+      </picture>
+      <span>Phillip Martin<span class="dot">.</span></span>
+    </a>
+    <ul>
+      <li><a class="nav-link" href="#focus">Focus</a></li>
+      <li><a class="nav-link" href="#ventures">Ventures</a></li>
+      <li><a class="nav-link" href="#lab">Lab</a></li>
+      <li><a class="nav-link" href="#writing">Writing</a></li>
+      <li><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow">Founder-Operator · Dublin / EU</div>
+        <h1>Twenty years building rights-cleared data&nbsp;and content&nbsp;businesses. Now building at&nbsp;the <em>Agentic&nbsp;AI × Blockchain</em> convergence.</h1>
+        <p class="lede">
+          Two-time founder. Three ventures shipped. <strong>Operating director of the world's largest digitised collection of Irish newspapers</strong> — 260+ titles, 1738 to present. Founder of a profitable twenty-year D2C content business. Open to senior product and operating roles — <strong>VP Product · Head of Product · CPO · COO</strong> — at AI and crypto-native companies building at this convergence.
+        </p>
+        <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:phillipmartin1234@icloud.com">
+        Get in touch
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/phillip~martin/" target="_blank" rel="noopener">
+        LinkedIn
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="/phillip-martin-cv.pdf" target="_blank" rel="noopener">
+        CV (PDF)
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      </a>
+        </div>
+      </div>
+
+      <figure class="hero-portrait">
+        <picture>
+          <source srcset="portrait.webp" type="image/webp">
+          <img src="portrait.jpg" alt="Phillip Martin — Dublin, 2026" width="1000" height="1250">
+        </picture>
+        <figcaption class="caption">
+          <span class="name">Phillip Martin</span>
+          <span>Dublin · 2026</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="meta-strip">
+      <div class="meta-item">
+        <div class="k">Based</div>
+        <div class="v">Dublin, Ireland</div>
+      </div>
+      <div class="meta-item">
+        <div class="k">Citizenship</div>
+        <div class="v">Irish / EU</div>
+      </div>
+      <div class="meta-item">
+        <div class="k">Availability</div>
+        <div class="v">Remote · EU / US TZ</div>
+      </div>
+      <div class="meta-item">
+        <div class="k">Scope</div>
+        <div class="v">Series A → C</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">The Operator</div>
+      <h2>A senior operator with <em>receipts</em>, not just opinions.</h2>
+    </div>
+    <p class="positioning reveal">
+      I operate the institutional version of what <span class="accent">Story Protocol and Vana</span> are building on-chain. For twenty years I've been brokering rights-cleared content into commercial licensing deals — with publishers, libraries, universities, and governments. The capability AI labs are now urgently sourcing for foundation-model training, I've been doing manually since 2003.
+    </p>
+  </div>
+</section>
+
+<section id="receipts" style="padding-top: 24px;">
+  <div class="wrap">
+    <div class="receipts reveal">
+      <div class="receipt">
+        <div class="num">260<span>+</span></div>
+        <h3>Publications under one digital roof</h3>
+        <p>The world's largest digitised collection of Irish newspapers — content from 1738 to present, deployed across every Irish public library, university and school. (Cited by Wikipedia, The Irish Times, Magill.)</p>
+      </div>
+      <div class="receipt">
+        <div class="num">100<span>+</span></div>
+        <h3>Institutional clients acquired</h3>
+        <p>Including the British Library, National Library of Ireland, NYPL, UCLA, Notre Dame, and National &amp; State Libraries of Australasia. The exact GTM motion AI infrastructure companies now run.</p>
+      </div>
+      <div class="receipt">
+        <div class="num">3</div>
+        <h3>Major publisher licensing deals</h3>
+        <p>Mediahuis (formerly Independent News &amp; Media), Irish Times Group, Irish Examiner Group. White-label D2C storefronts powering branded commerce since 2005.</p>
+      </div>
+      <div class="receipt">
+        <div class="num">20<span> yrs</span></div>
+        <h3>Profitable operating record</h3>
+        <p>Through the post-2008 Irish recession, COVID supply-chain shock, and the print-to-digital secular shift — without external capital. Two ventures still running.</p>
+      </div>
+      <div class="receipt">
+        <div class="num">2</div>
+        <h3>Products disciplined-sunsetted</h3>
+        <p>The Guardian (UK) variant and VideoBook (2022, Kickstarter-funded). Killed both when the data didn't support continued investment. Sunsetting is a senior trait.</p>
+      </div>
+      <div class="receipt">
+        <div class="num">1<span>st</span></div>
+        <h3>Class Honours, 2018</h3>
+        <p>BSc Digital Technology, Design &amp; Innovation, TU Dublin. Sixteen years into operating two businesses, I went back to school. Continuous learner — not legacy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ventures">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">Ventures</div>
+      <h2>Three ventures shipped. <em>Two still operating</em> two decades in.</h2>
+    </div>
+    <div class="ventures">
+      <article class="venture reveal">
+        <div class="side">
+          <div class="name">Irish Newspaper Archives</div>
+          <div class="role">Director, Operations &amp; Commercial</div>
+          <div class="dates">2003 — Present</div>
+          <span class="tag tag-live">Active</span>
+        </div>
+        <div class="body">
+          <p>Joined shortly after the company's Enterprise Ireland HPSU designation. Helped build it from a microfilm-conversion service into <strong>the world's largest commercial Irish newspaper archive</strong>, with a digital platform live since 2009.</p>
+          <p>Owned product, institutional B2B/B2G sales, rights and licensing, and earned-media positioning. Continually expanded the corpus across national and regional press — most recently the Irish News, Belfast Telegraph, Mayo Examiner, and The Corkman.</p>
+          <p>Today the de facto reference resource for Irish journalism, genealogy and academic research — and exactly the kind of rights-cleared, multi-century text corpus that LLM training and on-chain content-provenance protocols are actively sourcing in 2026.</p>
+          <div class="links">
+            <a href="https://www.irishnewsarchive.com" target="_blank" rel="noopener">irishnewsarchive.com →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="venture reveal">
+        <div class="side">
+          <div class="name">Memorable Moments</div>
+          <div class="role">Founder &amp; Operator</div>
+          <div class="dates">2005 — Present</div>
+          <span class="tag tag-live">Active</span>
+        </div>
+        <div class="body">
+          <p>Founded a D2C e-commerce business converting the INA content asset into personalised consumer products. <strong>Thousands of books sold</strong>. Profitable since launch. Still operating twenty years on, without external capital.</p>
+          <p>Secured licensing contracts with Mediahuis, Irish Times Group and Irish Examiner Group, powering publisher-branded white-label storefronts at <em>irishindependent.memorablemoments.ie</em>, <em>irishtimes.memorablemoments.ie</em> and <em>irishexaminer.memorablemoments.ie</em>.</p>
+          <p>Full P&amp;L ownership: pricing, merchandising, performance marketing, supply chain (bindery partner network), fulfilment, customer ops, finance.</p>
+          <div class="links">
+            <a href="https://www.memorablemoments.ie" target="_blank" rel="noopener">memorablemoments.ie →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="venture reveal">
+        <div class="side">
+          <div class="name">VideoBook</div>
+          <div class="role">Founder</div>
+          <div class="dates">2022 — 2023</div>
+          <span class="tag tag-sunset">Sunset</span>
+        </div>
+        <div class="body">
+          <p>Founded a print/digital hybrid — a photo book with QR-linked video playback. <strong>Successfully crowdfunded on Kickstarter</strong> (campaign closed November 2022).</p>
+          <p>Post-launch retention and repeat-order data failed to confirm PMF. <strong>Sunset the line in 2023 rather than burn further capital.</strong> Documented deliberately: knowing when to kill a product is the single highest-leverage skill in senior product leadership. Most operators can't do it.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="focus">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">Current Focus</div>
+      <h2>Where my next twenty years <em>go to work</em>.</h2>
+      <p>The agentic-AI × blockchain convergence is the most interesting product surface area I've seen in two decades. Four threads I'm actively focused on:</p>
+    </div>
+
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="arrow">→</div>
+        <h3>Content licensing for LLM training</h3>
+        <p>Direct publisher–lab deals, on-chain IP infrastructure (Story Protocol), tokenised data DAOs (Vana). I've been operating the off-chain version of this for twenty years.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="arrow">→</div>
+        <h3>On-chain provenance &amp; verifiable inference</h3>
+        <p>Provenance is the missing piece between AI output and trust. Where archive-grade rights-clearance discipline meets cryptographic proof.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="arrow">→</div>
+        <h3>Agentic systems over knowledge bases</h3>
+        <p>RAG at archive scale. MCP servers exposing curated corpora as first-class tools for Claude, GPT-class and downstream agents.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="arrow">→</div>
+        <h3>EU-regulated product</h3>
+        <p>EU AI Act, MiCA, DSA, GDPR — the regulatory thicket US firms increasingly need EU-anchored product leadership to navigate. Dublin is a real edge here.</p>
+      </div>
+    </div>
+
+    <div class="callout reveal">
+      <div class="label">The EU Angle</div>
+      <p>I'm <strong>Dublin-based and EU/Irish citizen</strong>, with twenty years of operating receipts inside the Irish/EU commercial and regulatory environment. For US-headquartered AI and crypto companies needing senior EU-anchored product leadership — under MiCA, the AI Act, the DSA, GDPR — that combination is rare and increasingly valuable.</p>
+    </div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">Building In Public</div>
+      <h2>Receipts, in&nbsp;code.</h2>
+      <p>Operators talk. Operators who ship are different. Live and in-progress artefacts using my own content asset as the moat.</p>
+    </div>
+
+    <div class="lab">
+      <div class="lab-card reveal">
+        <div class="status"><span class="pulse"></span> In progress</div>
+        <h3>INA-Agent</h3>
+        <p>A working agentic-AI demo over a curated sample of pre-1900 Irish newspaper content from the Irish Newspaper Archives corpus. RAG web demo + MCP server exposing the archive as a first-class tool to Claude Desktop and other MCP-compatible clients.</p>
+        <div class="meta">Stack: Next.js · Claude API · Supabase pgvector · Model Context Protocol · Vercel</div>
+      </div>
+      <div class="lab-card reveal">
+        <div class="status"><span class="pulse"></span> Tracking</div>
+        <h3>Convergence Watch</h3>
+        <p>Active observation of the AI × crypto convergence layer — Story Protocol, Vana, Sahara AI, Bittensor, Filecoin, the on-chain provenance stack. Self-custody wallet operator across Ethereum and major L2s; active DeFi user. Writing about it on LinkedIn.</p>
+        <div class="meta">Areas: On-chain IP · Tokenised data DAOs · Verifiable inference · Restaking</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="writing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="label">Writing</div>
+      <h2>Thinking out loud, in&nbsp;the&nbsp;open.</h2>
+      <p>Long-form takes on content licensing, agentic AI, EU regulation, and the convergence layer. Published on LinkedIn.</p>
+    </div>
+
+    <div class="writing-list">
+      <a class="writing-item reveal" href="https://www.linkedin.com/in/phillip~martin/recent-activity/all/" target="_blank" rel="noopener">
+        <div class="date">Forthcoming</div>
+        <div class="title">What 250 years of Irish newspapers taught me about training data for LLMs</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="writing-item reveal" href="https://www.linkedin.com/in/phillip~martin/recent-activity/all/" target="_blank" rel="noopener">
+        <div class="date">Forthcoming</div>
+        <div class="title">Three under-discussed risks in the AI data-licensing land rush</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="writing-item reveal" href="https://www.linkedin.com/in/phillip~martin/recent-activity/all/" target="_blank" rel="noopener">
+        <div class="date">Forthcoming</div>
+        <div class="title">Building an MCP server over 250 years of Irish newspapers — and why protocol-level thinking matters</div>
+        <div class="arrow">→</div>
+      </a>
+      <a class="writing-item reveal" href="https://www.linkedin.com/in/phillip~martin/recent-activity/all/" target="_blank" rel="noopener">
+        <div class="date">Forthcoming</div>
+        <div class="title">What I'd build if I were an AI × crypto founder in 2026</div>
+        <div class="arrow">→</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom: 0;">
+      <div class="label">Let's Talk</div>
+      <h2>If you're building <em>at the convergence</em>, I want to hear about it.</h2>
+      <p class="lede">
+        I'm in active conversations with AI and crypto-native companies hiring senior product and operating leaders. Series A through C, founder-led, with a real product moat and EU regulatory awareness. If that's you — or you know someone who fits the description — get in touch directly.
+      </p>
+    </div>
+    <div class="cta-row reveal">
+      <a class="btn btn-primary" href="mailto:phillipmartin1234@icloud.com">
+        phillipmartin1234@icloud.com
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/phillip~martin/" target="_blank" rel="noopener">
+        Connect on LinkedIn
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="yr">2026</span> Phillip Martin · Dublin, Ireland</div>
+    <div>
+      <a href="https://www.linkedin.com/in/phillip~martin/" target="_blank" rel="noopener">LinkedIn</a> ·
+      <a href="https://www.irishnewsarchive.com" target="_blank" rel="noopener">Irish Newspaper Archives</a> ·
+      <a href="https://www.memorablemoments.ie" target="_blank" rel="noopener">Memorable Moments</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>

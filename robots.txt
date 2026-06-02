@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://phillip-martin.com/sitemap.xml
