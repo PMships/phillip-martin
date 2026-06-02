@@ -127,17 +127,17 @@
       inset: 0;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: stretch;
       gap: 0;
-      padding: 100px 32px 40px;
+      padding: 88px 32px 40px;
       background: var(--bg);
       opacity: 0;
       pointer-events: none;
       transform: translateY(-8px);
       transition: opacity .28s ease, transform .28s ease;
       z-index: 55;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
+      overscroll-behavior: contain;
     }
     body.menu-open nav ul {
       opacity: 1;
@@ -151,14 +151,14 @@
     nav ul li:first-child { border-top: 1px solid var(--line); }
     nav a.nav-link {
       font-family: var(--serif);
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 400;
       letter-spacing: -.01em;
       color: var(--text);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 22px 0;
+      padding: 18px 0;
       width: 100%;
     }
     nav a.nav-link::after {
@@ -168,11 +168,30 @@
       opacity: .5;
       transition: opacity .2s ease, transform .2s ease;
     }
-    nav a.nav-link:hover::after,
-    nav a.nav-link:active::after { opacity: 1; transform: translateX(4px); }
+    nav a.nav-link:active::after,
+    nav a.nav-link:focus::after { opacity: 1; transform: translateX(4px); }
+
     .menu-toggle { display: inline-flex; position: relative; z-index: 60; }
-    /* Keep brand + button visible above the overlay */
+    /* Keep nav wrap above overlay so X button stays clickable */
     nav .wrap { position: relative; z-index: 60; }
+
+    /* Full-screen takeover: hide brand when menu is open. Only X remains. */
+    .brand {
+      transition: opacity .2s ease, visibility .2s ease;
+    }
+    body.menu-open .brand {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    /* Nav background goes transparent when overlay is open — overlay supplies the bg */
+    body.menu-open nav {
+      background: transparent;
+      border-bottom-color: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+
     body.menu-open { overflow: hidden; position: fixed; width: 100%; }
   }
 
